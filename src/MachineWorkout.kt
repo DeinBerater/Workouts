@@ -55,7 +55,7 @@ data class MachineWorkout(val machine: Machine, val sets: MutableList<WorkoutSet
      * @return itself
      * */
     fun addSetByString(setInfo: String, extraInfoOverride: String? = null): MachineWorkout {
-        if (setInfo == "") throw IllegalArgumentException()
+        if (setInfo == "") throw IllegalArgumentException("Set info cannot be empty!")
         val regex = Regex("^(?:(?:(\\d+)x\\s)?(\\d+(?:.\\d+)?)(?:\\s\\((.+)\\))?|Dropsatz von (\\d+(?:.\\d+)?))\$")
 
 

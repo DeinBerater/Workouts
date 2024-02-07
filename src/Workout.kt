@@ -14,7 +14,7 @@ data class Workout(
                 string.trim().split("\n").first().let { firstLine ->
                     val regex = Regex("^(?:.+?:\\s*)??([^\\s:]+)(?:(?::\\s*(.*))?|\\s+\\((.+?)\\))?\$")
                     val result = regex.matchEntire(firstLine)
-                        ?: throw IllegalArgumentException("The first line of the workout details is incorrect!")
+                        ?: throw IllegalArgumentException("The first line of the workout details ($firstLine) is incorrect!")
                     val dateToParse = result.groups[1]!!.value
 
                     val dateParsed = try {
@@ -44,7 +44,7 @@ data class Workout(
     }
 
     fun addMachineWorkout(machineWorkoutInfo: String): Workout {
-        if (machineWorkoutInfo == "") throw IllegalArgumentException()
+        if (machineWorkoutInfo == "") throw IllegalArgumentException("Machine workout info cannot be empty!")
 
         val regex =
             Regex("^[^():]+(?:\\(.+?\\))?(?::(.+))?$") // Unfortunately not much different than the regex in the MachineWorkout ctor
