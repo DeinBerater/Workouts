@@ -55,7 +55,7 @@ data class Workout(
         val setsString = regexResult.groups[1]?.value?.trim()
         if (setsString != null) { // setString is null if there is just the machine name, e.g. "Blaues Teil"
             val regexSets =
-                Regex("(?:(?<=^|,)|(?<=\\d\\s))\\s*?(?:.*?\\d+?(?=\\s[^(])|\\d(?=\\s[^(])|.+?(?=,|\$))")
+                Regex("(?:(?<=^|,)|(?<=\\d\\s))\\s*?(?:\\d(?=\\s[^(])|[^,]+?\\d(?=\\s[^(])|.+?(?=,|\$))")
 
             val setMatches = regexSets.findAll(setsString)
 
