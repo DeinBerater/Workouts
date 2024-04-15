@@ -229,6 +229,72 @@ class WorkoutTest {
     }
 
     @Test
+    fun addMachineWorkoutSimple2() {
+        val workout = Workout(WorkoutType.Back, "03.02.23")
+        val wantMachine = Machine("Seated calf")
+        val wantSets = listOf(
+            NormalSet(25.0),
+            NormalSet(30.0),
+            NormalSet(30.0),
+            NormalSet(30.0),
+            NormalSet(30.0),
+            NormalSet(30.0),
+        )
+
+        val have =
+            workout.addMachineWorkout("Seated calf: 25 30 30, 30 30 30").machines.first()
+
+        val haveMachine = have.machine
+        val haveSets = have.sets
+
+        assertTrue(wantMachine.isEqual(haveMachine))
+        assertEquals(wantSets, haveSets)
+    }
+
+    @Test
+    fun addMachineWorkoutSimple3() {
+        val workout = Workout(WorkoutType.Back, "03.02.23")
+        val wantMachine = Machine("Seated calf")
+        val wantSets = listOf(
+            NormalSet(30.0),
+            NormalSet(30.0),
+            NormalSet(30.0),
+            NormalSet(30.0),
+            NormalSet(30.0),
+            NormalSet(30.0),
+        )
+
+        val have =
+            workout.addMachineWorkout("Seated calf: 30, 30, 30, 30, 30 30").machines.first()
+
+        val haveMachine = have.machine
+        val haveSets = have.sets
+
+        assertTrue(wantMachine.isEqual(haveMachine))
+        assertEquals(wantSets, haveSets)
+    }
+
+    @Test
+    fun addMachineWorkoutSimple4() {
+        val workout = Workout(WorkoutType.Back, "03.02.23")
+        val wantMachine = Machine("Glute")
+        val wantSets = listOf(
+            NormalSet(27.5),
+            NormalSet(35.0),
+            NormalSet(35.0),
+        )
+
+        val have =
+            workout.addMachineWorkout("Glute: 27.5 35 35").machines.first()
+
+        val haveMachine = have.machine
+        val haveSets = have.sets
+
+        assertTrue(wantMachine.isEqual(haveMachine))
+        assertEquals(wantSets, haveSets)
+    }
+
+    @Test
     fun addMachineWorkoutSimpler() {
         val workout = Workout(WorkoutType.Back, "03.02.23")
         val wantMachine = Machine("Lateral Raise Kabelzug", "Höhe: 5")
