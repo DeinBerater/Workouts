@@ -1,4 +1,4 @@
-package machines
+package de.deinberater.workouts
 
 class Machine(val name: String, val details: String? = null) {
     val type: MachineType

@@ -1,5 +1,5 @@
-import machines.Machine
-import machines.MachineType
+package de.deinberater.workouts
+
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 

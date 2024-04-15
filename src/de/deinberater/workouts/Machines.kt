@@ -1,4 +1,4 @@
-package machines
+package de.deinberater.workouts
 
 class Machines {
     companion object {

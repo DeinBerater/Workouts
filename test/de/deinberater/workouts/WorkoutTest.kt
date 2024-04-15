@@ -1,9 +1,7 @@
-import machines.Machine
+package de.deinberater.workouts
+
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
-import workoutsets.DropSet
-import workoutsets.NormalSet
-import workoutsets.SpecialSet
 import java.time.LocalDate
 
 class WorkoutTest {

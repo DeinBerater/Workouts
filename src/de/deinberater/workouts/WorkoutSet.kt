@@ -1,4 +1,4 @@
-package workoutsets
+package de.deinberater.workouts
 
 import kotlin.math.floor
 
@@ -9,6 +9,8 @@ abstract class WorkoutSet(open val baseWeight: Double) {
         if (isWholeNumber) return baseWeight.toInt().toString()
         return baseWeight.toString()
     }
+
+    abstract fun getVolume(): Int
 
     abstract fun copyWithNewWeight(newWeight: Double): WorkoutSet
 }

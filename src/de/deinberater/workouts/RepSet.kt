@@ -1,4 +1,4 @@
-package workoutsets
+package de.deinberater.workouts
 
 abstract class RepSet(override val baseWeight: Double, private val reps: Int?) : WorkoutSet(baseWeight) {
     override fun toString(): String {
@@ -11,6 +11,10 @@ abstract class RepSet(override val baseWeight: Double, private val reps: Int?) :
 
     fun reps(): Int {
         return reps ?: 12
+    }
+
+    override fun getVolume(): Int {
+        return (reps() * baseWeight).toInt()
     }
 
     override fun hashCode(): Int {

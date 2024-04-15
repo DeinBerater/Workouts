@@ -1,4 +1,4 @@
-package workoutsets
+package de.deinberater.workouts
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotEquals
@@ -88,7 +88,7 @@ class WorkoutSetTest {
     }
 
     @Test
-    fun notEqual2() {
+    fun notEquals2() {
         val sut = SpecialSet(30.0, "wtf")
         val other = SpecialSet(30.0, "other")
 

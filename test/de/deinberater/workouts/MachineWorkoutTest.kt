@@ -1,10 +1,7 @@
-import machines.Machine
+package de.deinberater.workouts
+
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
-import workoutsets.DropSet
-import workoutsets.NormalSet
-import workoutsets.SpecialSet
-import workoutsets.WorkoutSet
 
 class MachineWorkoutTest {
 
@@ -28,6 +25,108 @@ class MachineWorkoutTest {
 
         assertEquals(sets, have)
     }
+
+    @Test
+    fun ctor2() {
+        val machine = Machine("MTS Crunch")
+        val sut = MachineWorkout("MTS Crunch")
+        val have = sut.machine
+
+        assertEquals(machine, have)
+    }
+
+    @Test
+    fun ctorWithSets2() {
+        val sets: MutableList<WorkoutSet> = mutableListOf(NormalSet(10.0), NormalSet(20.0))
+        val sut = MachineWorkout("MTS Crunch", sets)
+
+        val have = sut.sets
+
+        assertEquals(sets, have)
+    }
+
+    @Test
+    fun ctor3() {
+        val machine = Machine("MTS Crunch", "Höhe 8")
+        val sut = MachineWorkout("MTS Crunch (Höhe 8)")
+        val have = sut.machine
+
+        assertEquals(machine, have)
+    }
+
+    @Test
+    fun ctor4() {
+        val machine = Machine("MTS Crunch", "Höhe 8")
+        val sut = MachineWorkout("MTS Crunch (Höhe 9)")
+        val have = sut.machine
+
+        assertNotEquals(machine, have)
+    }
+
+    @Test
+    fun ctor5() {
+        val machine = Machine("MTS Crunch")
+        val sut = MachineWorkout("MTS Crunch (Höhe 9)")
+        val have = sut.machine
+
+        assertNotEquals(machine, have)
+    }
+
+    @Test
+    fun ctor6() {
+        val machine = Machine("MTS Crunches")
+        val sut = MachineWorkout("MTS Crunch")
+        val have = sut.machine
+
+        assertNotEquals(machine, have)
+    }
+
+    @Test
+    fun ctor7() {
+        val machine = Machine("MTS Crunch", "Höhe 9")
+        val sut = MachineWorkout("MTS Crunch")
+        val have = sut.machine
+
+        assertNotEquals(machine, have)
+    }
+
+    @Test
+    fun ctor8() {
+        val machine = Machine("MTS Crunch", "Höhe: 9")
+        val sut = MachineWorkout("MTS Crunch (Höhe: 9)")
+        val have = sut.machine
+
+        assertEquals(machine, have)
+    }
+
+    @Test
+    fun ctorMachineInvalid() {
+        assertThrows(IllegalArgumentException::class.java) {
+            MachineWorkout(": MTS Crunch")
+        }
+    }
+
+    @Test
+    fun ctorMachineInvalid2() {
+        assertThrows(IllegalArgumentException::class.java) {
+            MachineWorkout("(MTS Crunch)")
+        }
+    }
+
+    @Test
+    fun ctorMachineInvalid3() {
+        assertThrows(IllegalArgumentException::class.java) {
+            MachineWorkout("MTS Crunch ()")
+        }
+    }
+
+    @Test
+    fun ctorMachineInvalid4() {
+        assertThrows(IllegalArgumentException::class.java) {
+            MachineWorkout("MTS Crunch (Höhe 9):")
+        }
+    }
+
 
     @Test
     fun getTopSet() {
@@ -402,6 +501,56 @@ class MachineWorkoutTest {
         val want = "MTS Crunch (Höhe 8): 10 (strange), 10x 20, 27.5 (eh), Dropsatz von 30"
 
         val have = sut.toString()
+
+        assertEquals(want, have)
+    }
+
+    @Test
+    fun getVolume() {
+        val machine = Machine("MTS Crunch", "Höhe 8")
+        val sut =
+            MachineWorkout(machine)
+                .addSetByString("10 (strange)")
+                .addSetByString("10x 20")
+                .addSetByString("27.5 (eh)")
+        val want = 650
+
+        val have = sut.getVolume()
+
+        assertEquals(want, have)
+    }
+
+
+    @Test
+    fun getVolume2() {
+        val machine = Machine("MTS Crunch", "Höhe 8")
+        val sut =
+            MachineWorkout(machine)
+                .addSetByString("10 (strange)")
+                .addSetByString("2x 20")
+                .addSetByString("Dropsatz von 10")
+        val want = 240
+
+        val have = sut.getVolume()
+
+        assertEquals(want, have)
+    }
+
+    @Test
+    fun getVolume3() {
+        val machine = Machine("MTS Crunch", "Höhe 8")
+        val sut =
+            MachineWorkout(
+                machine, mutableListOf(
+                    SpecialSet(10.0, "strange"),
+                    NormalSet(20.0, 10),
+                    SpecialSet(27.5, "eh", 8),
+                    DropSet(30.0)
+                )
+            )
+        val want = 780
+
+        val have = sut.getVolume()
 
         assertEquals(want, have)
     }
