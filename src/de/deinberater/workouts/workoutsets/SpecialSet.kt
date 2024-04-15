@@ -1,4 +1,4 @@
-package de.deinberater.workouts
+package de.deinberater.workouts.workoutsets
 
 data class SpecialSet(override val baseWeight: Double, val specialInfo: String, private val reps: Int? = null) :
     RepSet(baseWeight, reps) {

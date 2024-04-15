@@ -1,5 +1,11 @@
 package de.deinberater.workouts
 
+import de.deinberater.workouts.machines.Machine
+import de.deinberater.workouts.workoutsets.DropSet
+import de.deinberater.workouts.workoutsets.NormalSet
+import de.deinberater.workouts.workoutsets.SpecialSet
+import de.deinberater.workouts.workoutsets.WorkoutSet
+
 data class MachineWorkout(val machine: Machine, val sets: MutableList<WorkoutSet> = mutableListOf()) {
     constructor(machineString: String, sets: MutableList<WorkoutSet> = mutableListOf()) : this(machineString.let {
         val regexMachine = Regex("^([^():]+)(?:\\((.+?)\\))?(?::.+)?$")

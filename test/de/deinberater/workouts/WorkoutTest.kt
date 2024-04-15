@@ -1,5 +1,9 @@
 package de.deinberater.workouts
 
+import de.deinberater.workouts.machines.Machine
+import de.deinberater.workouts.workoutsets.DropSet
+import de.deinberater.workouts.workoutsets.NormalSet
+import de.deinberater.workouts.workoutsets.SpecialSet
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import java.time.LocalDate

@@ -1,4 +1,4 @@
-package de.deinberater.workouts
+package de.deinberater.workouts.workoutsets
 
 data class NormalSet(override val baseWeight: Double, private val reps: Int? = null) : RepSet(baseWeight, reps) {
 

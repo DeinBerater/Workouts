@@ -1,4 +1,4 @@
-package de.deinberater.workouts
+package de.deinberater.workouts.machines
 
 enum class MachineType {
 

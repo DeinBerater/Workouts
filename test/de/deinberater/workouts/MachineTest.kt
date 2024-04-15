@@ -1,5 +1,7 @@
 package de.deinberater.workouts
 
+import de.deinberater.workouts.machines.Machine
+import de.deinberater.workouts.machines.MachineType
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
