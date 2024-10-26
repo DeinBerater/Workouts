@@ -1,8 +1,5 @@
-package de.deinberater.workouts
+package de.deinberater.workouts.workoutsets
 
-import de.deinberater.workouts.workoutsets.DropSet
-import de.deinberater.workouts.workoutsets.NormalSet
-import de.deinberater.workouts.workoutsets.SpecialSet
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotEquals
 import org.junit.jupiter.api.Test

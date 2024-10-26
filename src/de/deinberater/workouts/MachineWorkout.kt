@@ -53,7 +53,7 @@ data class MachineWorkout(val machine: Machine, val sets: MutableList<WorkoutSet
     /** Gets the total volume of this machine workout
      * @return The sum of the set volumes */
     fun getVolume(): Int {
-        return sets.sumOf { it.getVolume() }
+        return sets.sumOf { it.getVolume(machine.getRealWeight(0.0)) }
     }
 
 

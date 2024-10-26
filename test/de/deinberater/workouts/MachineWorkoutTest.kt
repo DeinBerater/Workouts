@@ -559,4 +559,32 @@ class MachineWorkoutTest {
 
         assertEquals(want, have)
     }
+
+    @Test
+    fun getVolume4() {
+        val machine = Machine("Deadlifts", "Höhe 8")
+        val sut =
+            MachineWorkout(
+                machine, mutableListOf(NormalSet(10.0), NormalSet(25.0))
+            )
+        val want = 900
+
+        val have = sut.getVolume()
+
+        assertEquals(want, have)
+    }
+
+    @Test
+    fun getVolume5() {
+        val machine = Machine("Trizeps Seilzug")
+        val sut =
+            MachineWorkout(
+                machine, mutableListOf(NormalSet(10.0), NormalSet(25.0))
+            )
+        val want = 420
+
+        val have = sut.getVolume()
+
+        assertEquals(want, have)
+    }
 }
