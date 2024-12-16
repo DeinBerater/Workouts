@@ -2,7 +2,7 @@ package de.deinberater.workouts.machines
 
 class Machines {
     companion object {
-        private const val BODYWEIGHT = 62.0
+        private const val BODY_WEIGHT = 67.0
 
         fun getMoreInfoByName(machineName: String): Map<String, Any> {
             val machines = buildMap {
@@ -19,13 +19,13 @@ class Machines {
                 put("Triceps Press", mapOf("type" to MachineType.DefaultMachine, "baseWeight" to 0.0))
                 put("Biceps Curl", mapOf("type" to MachineType.DefaultMachine, "baseWeight" to 0.0))
                 put("Shrugs Trap Bar", mapOf("type" to MachineType.Bar, "baseWeight" to 20.0))
-                put("Squats Stange", mapOf("type" to MachineType.DefaultMachine, "baseWeight" to BODYWEIGHT + 20.0))
+                put("Squats Stange", mapOf("type" to MachineType.DefaultMachine, "baseWeight" to BODY_WEIGHT + 20.0))
                 put("Deadlifts", mapOf("type" to MachineType.DefaultMachine, "baseWeight" to 20.0))
                 put("MTS Shoulder Press", mapOf("type" to MachineType.DefaultMachine, "baseWeight" to 0.0))
                 put("Oblique Crunch", mapOf("type" to MachineType.PlateMachine, "baseWeight" to 0.0))
                 put("Oblique Crunch Seitlich", mapOf("type" to MachineType.PlateMachine, "baseWeight" to 0.0))
                 put("MTS Bizeps", mapOf("type" to MachineType.DefaultMachine, "baseWeight" to 0.0))
-                put("Standing Calf Raise", mapOf("type" to MachineType.DefaultMachine, "baseWeight" to BODYWEIGHT))
+                put("Standing Calf Raise", mapOf("type" to MachineType.DefaultMachine, "baseWeight" to BODY_WEIGHT))
                 put("MTS Rudern", mapOf("type" to MachineType.DefaultMachine, "baseWeight" to 0.0))
                 put("MTS Latzug", mapOf("type" to MachineType.DefaultMachine, "baseWeight" to 0.0))
                 put("MTS Beinstrecker", mapOf("type" to MachineType.DefaultMachine, "baseWeight" to 0.0))
@@ -45,7 +45,7 @@ class Machines {
                 put("Biceps Curl Seil", mapOf("type" to MachineType.DefaultMachine, "baseWeight" to 0.0))
                 put("Cable Flies", mapOf("type" to MachineType.DefaultMachine, "baseWeight" to 0.0))
                 put("Lateral Raise Kabelzug", mapOf("type" to MachineType.DefaultMachine, "baseWeight" to 0.0))
-                put("Squats", mapOf("type" to MachineType.PlateMachine, "baseWeight" to BODYWEIGHT))
+                put("Squats", mapOf("type" to MachineType.PlateMachine, "baseWeight" to BODY_WEIGHT))
                 put("Seated Calf", mapOf("type" to MachineType.PlateMachine, "baseWeight" to 0.0))
                 put("Seated Dip", mapOf("type" to MachineType.PlateMachine, "baseWeight" to 0.0))
                 put("Seated Bicep", mapOf("type" to MachineType.DefaultMachine, "baseWeight" to 0.0))
@@ -53,8 +53,8 @@ class Machines {
                 put("Iso-Lateral Decline Press", mapOf("type" to MachineType.PlateMachine, "baseWeight" to 0.0))
                 put("Iso-Lateral Bench Press", mapOf("type" to MachineType.PlateMachine, "baseWeight" to 0.0))
                 put("Blaues Teil", mapOf("type" to MachineType.BodyWeightMachine, "baseWeight" to 0.0))
-                put("Planks", mapOf("type" to MachineType.BodyWeightMachine, "baseWeight" to BODYWEIGHT))
-                put("Bizeps Hanteln", mapOf("type" to MachineType.Dumbbells, "baseWeight" to BODYWEIGHT))
+                put("Planks", mapOf("type" to MachineType.BodyWeightMachine, "baseWeight" to BODY_WEIGHT))
+                put("Bizeps Hanteln", mapOf("type" to MachineType.Dumbbells, "baseWeight" to BODY_WEIGHT))
                 put("Bankdrücken gerade", mapOf("type" to MachineType.Bar, "baseWeight" to 0.0))
                 put("Bankdrücken schräg oben", mapOf("type" to MachineType.Bar, "baseWeight" to 0.0))
                 put("Bankdrücken schräg unten", mapOf("type" to MachineType.Bar, "baseWeight" to 0.0))
@@ -69,7 +69,7 @@ class Machines {
                 put("Shoulder Hanteln", mapOf("type" to MachineType.Dumbbells, "baseWeight" to 0.0))
                 put("Lateral Raise Hanteln", mapOf("type" to MachineType.Dumbbells, "baseWeight" to 0.0))
                 put("Hanteln", mapOf("type" to MachineType.Dumbbells, "baseWeight" to 0.0))
-                put("Bulgarian Split Squats", mapOf("type" to MachineType.Dumbbells, "baseWeight" to BODYWEIGHT))
+                put("Bulgarian Split Squats", mapOf("type" to MachineType.Dumbbells, "baseWeight" to BODY_WEIGHT))
                 put("Rear Deltoid", mapOf("type" to MachineType.DefaultMachine, "baseWeight" to 0.0))
                 put("Rear Deltoid Kabelzug", mapOf("type" to MachineType.DefaultMachine, "baseWeight" to 0.0))
                 put("Pectoral Fly", mapOf("type" to MachineType.DefaultMachine, "baseWeight" to 0.0))

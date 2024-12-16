@@ -1,5 +1,5 @@
 package de.deinberater.workouts
 
 enum class WorkoutType {
-    Chest, Back, BellyShoulders, Legs
+    Chest, Back, BellyShoulders, Legs, Unknown
 }

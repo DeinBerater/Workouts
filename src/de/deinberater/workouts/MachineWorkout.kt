@@ -1,10 +1,8 @@
-package de.deinberater.workouts
-
-import de.deinberater.workouts.machines.Machine
-import de.deinberater.workouts.workoutsets.DropSet
-import de.deinberater.workouts.workoutsets.NormalSet
-import de.deinberater.workouts.workoutsets.SpecialSet
-import de.deinberater.workouts.workoutsets.WorkoutSet
+import machines.Machine
+import workoutsets.DropSet
+import workoutsets.NormalSet
+import workoutsets.SpecialSet
+import workoutsets.WorkoutSet
 
 data class MachineWorkout(val machine: Machine, val sets: MutableList<WorkoutSet> = mutableListOf()) {
     constructor(machineString: String, sets: MutableList<WorkoutSet> = mutableListOf()) : this(machineString.let {
@@ -48,12 +46,6 @@ data class MachineWorkout(val machine: Machine, val sets: MutableList<WorkoutSet
 
         // (b / a - 1) * 100
         return getSetsRealWeight().zipWithNext { a, b -> (b.baseWeight / a.baseWeight - 1.0) * 100.0 }
-    }
-
-    /** Gets the total volume of this machine workout
-     * @return The sum of the set volumes */
-    fun getVolume(): Int {
-        return sets.sumOf { it.getVolume(machine.getRealWeight(0.0)) }
     }
 
 
