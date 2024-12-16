@@ -1,13 +1,13 @@
-package workoutcreator
+package de.deinberater.workouts.workoutcreator
 
-import Exercise
-import Workout
-import WorkoutType
-import machines.Machine
-import workoutsets.DropSet
-import workoutsets.NormalSet
-import workoutsets.SpecialSet
-import workoutsets.WorkoutSet
+import de.deinberater.workouts.Exercise
+import de.deinberater.workouts.Workout
+import de.deinberater.workouts.WorkoutType
+import de.deinberater.workouts.machines.Machine
+import de.deinberater.workouts.workoutsets.DropSet
+import de.deinberater.workouts.workoutsets.NormalSet
+import de.deinberater.workouts.workoutsets.SpecialSet
+import de.deinberater.workouts.workoutsets.WorkoutSet
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.format.DateTimeParseException
@@ -49,7 +49,7 @@ class DeinBeratersWorkoutCreator : WorkoutCreator<String> {
 
 
     override fun createExercise(data: String): Exercise {
-        if (data == "") throw IllegalArgumentException("Exercise info cannot be empty!")
+        if (data == "") throw IllegalArgumentException("de.deinberater.workouts.Exercise info cannot be empty!")
 
         // Group 1: Sets (optional)
         val regex = Regex("(^[^():]+(?:\\(.+?\\))?)(?::(.+))?$")

@@ -4,7 +4,6 @@ data class NormalSet(override val baseWeight: Double, private val reps: Int? = n
 
     override fun toString() = super.toString()
 
-
     override fun equals(other: Any?): Boolean {
         return other is NormalSet && super.equals(other)
     }

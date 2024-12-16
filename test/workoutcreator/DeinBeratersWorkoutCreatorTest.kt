@@ -1,14 +1,15 @@
 package workoutcreator
 
-import Exercise
-import Workout
-import WorkoutType
-import machines.Machine
+import de.deinberater.workouts.Exercise
+import de.deinberater.workouts.Workout
+import de.deinberater.workouts.WorkoutType
+import de.deinberater.workouts.machines.Machine
+import de.deinberater.workouts.workoutcreator.DeinBeratersWorkoutCreator
+import de.deinberater.workouts.workoutsets.DropSet
+import de.deinberater.workouts.workoutsets.NormalSet
+import de.deinberater.workouts.workoutsets.SpecialSet
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
-import workoutsets.DropSet
-import workoutsets.NormalSet
-import workoutsets.SpecialSet
 import java.time.LocalDate
 
 class DeinBeratersWorkoutCreatorTest {

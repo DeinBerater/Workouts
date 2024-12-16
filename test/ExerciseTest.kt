@@ -1,10 +1,12 @@
-import machines.Machine
+import de.deinberater.workouts.Exercise
+import de.deinberater.workouts.machines.Machine
+import de.deinberater.workouts.workoutcreator.DeinBeratersWorkoutCreator
+import de.deinberater.workouts.workoutsets.DropSet
+import de.deinberater.workouts.workoutsets.NormalSet
+import de.deinberater.workouts.workoutsets.SpecialSet
+import de.deinberater.workouts.workoutsets.WorkoutSet
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
-import workoutsets.DropSet
-import workoutsets.NormalSet
-import workoutsets.SpecialSet
-import workoutsets.WorkoutSet
 
 class ExerciseTest {
 
@@ -200,6 +202,96 @@ class ExerciseTest {
         val want = "MTS Crunch (Höhe 8): 10 (strange), 10x 20, 27.5 (eh), Dropsatz von 30"
 
         val have = sut.toString()
+
+        assertEquals(want, have)
+    }
+
+    @Test
+    fun getVolume() {
+        val workoutCreator = DeinBeratersWorkoutCreator()
+
+        val machine = Machine("MTS Crunch", "Höhe 8")
+        val sut = Exercise(machine)
+        sut.sets.addAll(
+            listOf(
+                workoutCreator.createWorkoutSet("10 (strange)"),
+                workoutCreator.createWorkoutSet("10x 20"),
+                workoutCreator.createWorkoutSet("27.5 (eh)")
+            )
+        )
+
+        val want = 650
+
+        val have = sut.getVolume()
+
+        assertEquals(want, have)
+    }
+
+
+    @Test
+    fun getVolume2() {
+        val workoutCreator = DeinBeratersWorkoutCreator()
+
+        val machine = Machine("MTS Crunch", "Höhe 8")
+        val sut = Exercise(machine)
+        sut.sets.addAll(
+            listOf(
+                workoutCreator.createWorkoutSet("10 (strange)"),
+                workoutCreator.createWorkoutSet("10x 20"),
+                workoutCreator.createWorkoutSet("Dropsatz von 10")
+            )
+        )
+
+        val want = 400
+
+        val have = sut.getVolume()
+
+        assertEquals(want, have)
+    }
+
+    @Test
+    fun getVolume3() {
+        val machine = Machine("MTS Crunch", "Höhe 8")
+        val sut =
+            Exercise(
+                machine, mutableListOf(
+                    SpecialSet(10.0, "strange"),
+                    NormalSet(20.0, 10),
+                    SpecialSet(27.5, "eh", 8),
+                    DropSet(30.0)
+                )
+            )
+        val want = 780
+
+        val have = sut.getVolume()
+
+        assertEquals(want, have)
+    }
+
+    @Test
+    fun getVolume4() {
+        val machine = Machine("Deadlifts", "Höhe 8")
+        val sut =
+            Exercise(
+                machine, mutableListOf(NormalSet(10.0), NormalSet(25.0))
+            )
+        val want = 900
+
+        val have = sut.getVolume()
+
+        assertEquals(want, have)
+    }
+
+    @Test
+    fun getVolume5() {
+        val machine = Machine("Trizeps Seilzug")
+        val sut =
+            Exercise(
+                machine, mutableListOf(NormalSet(10.0), NormalSet(25.0))
+            )
+        val want = 420
+
+        val have = sut.getVolume()
 
         assertEquals(want, have)
     }

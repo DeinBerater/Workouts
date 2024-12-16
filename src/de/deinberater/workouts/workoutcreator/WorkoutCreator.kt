@@ -1,9 +1,9 @@
-package workoutcreator
+package de.deinberater.workouts.workoutcreator
 
-import Exercise
-import Workout
-import machines.Machine
-import workoutsets.WorkoutSet
+import de.deinberater.workouts.Exercise
+import de.deinberater.workouts.Workout
+import de.deinberater.workouts.machines.Machine
+import de.deinberater.workouts.workoutsets.WorkoutSet
 
 /** A class which can create a workout from specific file formats
  * @param T the inout data type. Can be a string, but also a JSON object or anything similar

@@ -1,5 +1,7 @@
-import machines.Machine
-import workoutsets.WorkoutSet
+package de.deinberater.workouts
+
+import de.deinberater.workouts.machines.Machine
+import de.deinberater.workouts.workoutsets.WorkoutSet
 
 data class Exercise(val machine: Machine, val sets: MutableList<WorkoutSet> = mutableListOf()) {
     fun getTopSet(): WorkoutSet? {
@@ -32,6 +34,11 @@ data class Exercise(val machine: Machine, val sets: MutableList<WorkoutSet> = mu
         return getSetsRealWeight().zipWithNext { a, b -> (b.baseWeight / a.baseWeight - 1.0) * 100.0 }
     }
 
+    /** Gets the total volume of this machine workout
+     * @return The sum of the set volumes */
+    fun getVolume(): Int {
+        return sets.sumOf { it.getVolume(machine.getRealWeight(0.0)) }
+    }
 
     override fun toString(): String {
         val machineString = machine.toString()
