@@ -1,7 +1,6 @@
 package de.deinberater.workouts.workoutsets
 
 data class NormalSet(override val baseWeight: Double, private val reps: Int? = null) : RepSet(baseWeight, reps) {
-
     override fun toString() = super.toString()
 
     override fun equals(other: Any?): Boolean {

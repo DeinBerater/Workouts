@@ -1,6 +1,7 @@
 package de.deinberater.workouts
 
 import de.deinberater.workouts.machines.Machine
+import de.deinberater.workouts.workoutconverter.DeinBeratersWorkoutConverter
 import de.deinberater.workouts.workoutsets.WorkoutSet
 
 data class Exercise(val machine: Machine, val sets: MutableList<WorkoutSet> = mutableListOf()) {
@@ -41,8 +42,6 @@ data class Exercise(val machine: Machine, val sets: MutableList<WorkoutSet> = mu
     }
 
     override fun toString(): String {
-        val machineString = machine.toString()
-        val setsString = sets.joinToString()
-        return "$machineString: $setsString"
+        return DeinBeratersWorkoutConverter().convertExercise(this)
     }
 }

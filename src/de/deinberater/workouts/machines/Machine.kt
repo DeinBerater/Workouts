@@ -1,5 +1,7 @@
 package de.deinberater.workouts.machines
 
+import de.deinberater.workouts.workoutconverter.DeinBeratersWorkoutConverter
+
 class Machine(val name: String, val details: String? = null) {
     val type: MachineType
     private val baseWeight: Double
@@ -27,6 +29,8 @@ class Machine(val name: String, val details: String? = null) {
         return other is Machine && toString() == other.toString() && hashCode() == other.hashCode()
     }
 
+    /** When comparing two machines, ignore colons. (e.g. height: 6 vs. height 6)
+     *  */
     private fun formatDetails(details: String?): String? {
         return details?.lowercase()?.replace(":", "")
     }
@@ -36,7 +40,7 @@ class Machine(val name: String, val details: String? = null) {
     }
 
     override fun toString(): String {
-        return name + (if (details != null) " ($details)" else "")
+        return DeinBeratersWorkoutConverter().convertMachine(this)
     }
 
     override fun hashCode(): Int {

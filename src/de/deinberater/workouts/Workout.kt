@@ -1,12 +1,12 @@
 package de.deinberater.workouts
 
+import de.deinberater.workouts.workoutconverter.DeinBeratersWorkoutConverter
 import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 
 data class Workout(
     val type: WorkoutType,
     val date: LocalDate,
-    val machines: MutableList<Exercise> = mutableListOf(),
+    val exercises: MutableList<Exercise> = mutableListOf(),
     var specialInfo: String? = null,
 ) {
     init {
@@ -14,9 +14,6 @@ data class Workout(
     }
 
     override fun toString(): String {
-        val firstLine =
-            date.format(DateTimeFormatter.ofPattern("dd.MM.yy")) + (if (specialInfo == null) "" else ": $specialInfo")
-        val otherLines = machines.joinToString("\n")
-        return (firstLine + "\n" + otherLines).trim()
+        return DeinBeratersWorkoutConverter().convertWorkout(this)
     }
 }

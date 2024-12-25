@@ -1,15 +1,11 @@
 package de.deinberater.workouts.workoutsets
 
-import kotlin.math.floor
+import de.deinberater.workouts.workoutconverter.DeinBeratersWorkoutConverter
 
 abstract class WorkoutSet(open val baseWeight: Double) {
-
     override fun toString(): String {
-        val isWholeNumber = floor(baseWeight) == baseWeight
-        if (isWholeNumber) return baseWeight.toInt().toString()
-        return baseWeight.toString()
+        return DeinBeratersWorkoutConverter().convertWorkoutSet(this)
     }
-
 
     /**
      * @param extraWeight the extra weight to the [baseWeight], for example from barbells

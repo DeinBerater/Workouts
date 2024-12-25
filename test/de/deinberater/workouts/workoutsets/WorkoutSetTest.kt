@@ -66,13 +66,21 @@ class WorkoutSetTest {
 
     @Test
     fun equals2() {
+        val sut = NormalSet(30.3, 11)
+        val equal = NormalSet(30.3, 11)
+
+        assertEquals(equal, sut)
+    }
+
+    @Test
+    fun equals3() {
         val sut = SpecialSet(30.0, "wtf")
 
         assertEquals(sut, sut)
     }
 
     @Test
-    fun equals3() {
+    fun equals4() {
         val sut = NormalSet(30.0)
         val equal = NormalSet(30.0, 12)
 
@@ -137,6 +145,14 @@ class WorkoutSetTest {
 
     @Test
     fun notEquals8() {
+        val sut = NormalSet(30.4)
+        val other = SpecialSet(30.4, "info")
+
+        assertNotEquals(sut, other)
+    }
+
+    @Test
+    fun notEquals9() {
         val sut = DropSet(30.0)
         val other = NormalSet(30.0)
 
@@ -144,7 +160,7 @@ class WorkoutSetTest {
     }
 
     @Test
-    fun notEquals9() {
+    fun notEquals10() {
         val sut = NormalSet(30.0)
         val other = DropSet(30.0)
 

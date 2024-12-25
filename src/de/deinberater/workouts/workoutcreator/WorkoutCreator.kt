@@ -5,8 +5,8 @@ import de.deinberater.workouts.Workout
 import de.deinberater.workouts.machines.Machine
 import de.deinberater.workouts.workoutsets.WorkoutSet
 
-/** A class which can create a workout from specific file formats
- * @param T the inout data type. Can be a string, but also a JSON object or anything similar
+/** A class which can create a workout from specific file formats.
+ * @param T the input data type. Can be a string, but also a JSON object or anything similar.
  * */
 interface WorkoutCreator<T> {
     /** Create a whole workout object from the input data
