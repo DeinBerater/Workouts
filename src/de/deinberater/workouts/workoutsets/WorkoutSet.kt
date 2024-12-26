@@ -10,7 +10,7 @@ abstract class WorkoutSet(open val baseWeight: Double) {
     /**
      * @param extraWeight the extra weight to the [baseWeight], for example from barbells
     * */
-    abstract fun getVolume(extraWeight: Double): Int
+    abstract fun getVolume(extraWeight: Double): Double
 
     abstract fun copyWithNewWeight(newWeight: Double): WorkoutSet
 }

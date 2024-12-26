@@ -7,7 +7,7 @@ data class DropSet(override val baseWeight: Double) : WorkoutSet(baseWeight) {
         return copy(baseWeight = newWeight)
     }
 
-    override fun getVolume(extraWeight: Double): Int {
-        return (8 * (baseWeight + extraWeight)).toInt() // The 8 is to receive an estimate.
+    override fun getVolume(extraWeight: Double): Double {
+        return (8 * (baseWeight + extraWeight)) // The 8 is to receive an estimate.
     }
 }

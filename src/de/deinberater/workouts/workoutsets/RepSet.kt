@@ -9,8 +9,8 @@ abstract class RepSet(override val baseWeight: Double, private val reps: Int?) :
         return reps ?: 12
     }
 
-    override fun getVolume(extraWeight: Double): Int {
-        return (reps() * (baseWeight + extraWeight)).toInt()
+    override fun getVolume(extraWeight: Double): Double {
+        return (reps() * (baseWeight + extraWeight))
     }
 
     override fun hashCode(): Int {

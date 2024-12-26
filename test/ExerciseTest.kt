@@ -32,6 +32,18 @@ class ExerciseTest {
     }
 
     @Test
+    fun getAmountSets() {
+        val machine = Machine("MTS Crunch", "Höhe 8")
+        val sets: MutableList<WorkoutSet> = mutableListOf(NormalSet(10.0), NormalSet(20.0))
+        val sut = Exercise(machine, sets)
+        val want = 2
+
+        val have = sut.getAmountSets()
+
+        assertEquals(want, have)
+    }
+
+    @Test
     fun getTopSet() {
         val machine = Machine("MTS Crunch", "Höhe 8")
         val sets: MutableList<WorkoutSet> = mutableListOf(NormalSet(10.0), NormalSet(20.0))
@@ -207,6 +219,45 @@ class ExerciseTest {
     }
 
     @Test
+    fun getStringEmpty() {
+        val machine = Machine("MTS Crunch", "Höhe 8")
+        val sut = Exercise(
+            machine
+        )
+        val want = "MTS Crunch (Höhe 8)"
+
+        val have = sut.toString()
+
+        assertEquals(want, have)
+    }
+
+    @Test
+    fun getStringEmpty2() {
+        val machine = Machine("MTS Crunch", "8")
+        val sut = Exercise(
+            machine
+        )
+        val want = "MTS Crunch (8)"
+
+        val have = sut.toString()
+
+        assertEquals(want, have)
+    }
+
+    @Test
+    fun getStringEmpty3() {
+        val machine = Machine("MTS Crunch")
+        val sut = Exercise(
+            machine
+        )
+        val want = "MTS Crunch"
+
+        val have = sut.toString()
+
+        assertEquals(want, have)
+    }
+
+    @Test
     fun getVolume() {
         val workoutCreator = DeinBeratersWorkoutCreator()
 
@@ -220,7 +271,7 @@ class ExerciseTest {
             )
         )
 
-        val want = 650
+        val want = 650.0
 
         val have = sut.getVolume()
 
@@ -242,7 +293,7 @@ class ExerciseTest {
             )
         )
 
-        val want = 400
+        val want = 400.0
 
         val have = sut.getVolume()
 
@@ -261,7 +312,7 @@ class ExerciseTest {
                     DropSet(30.0)
                 )
             )
-        val want = 780
+        val want = 780.0
 
         val have = sut.getVolume()
 
@@ -275,7 +326,7 @@ class ExerciseTest {
             Exercise(
                 machine, mutableListOf(NormalSet(10.0), NormalSet(25.0))
             )
-        val want = 900
+        val want = 900.0
 
         val have = sut.getVolume()
 
@@ -289,7 +340,7 @@ class ExerciseTest {
             Exercise(
                 machine, mutableListOf(NormalSet(10.0), NormalSet(25.0))
             )
-        val want = 420
+        val want = 420.0
 
         val have = sut.getVolume()
 

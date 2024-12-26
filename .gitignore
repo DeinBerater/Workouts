@@ -30,3 +30,6 @@ bin/
 
 resources
 .idea
+
+# Ignored due to functional code not required for this project
+Main.kt

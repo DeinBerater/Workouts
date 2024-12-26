@@ -49,7 +49,7 @@ class DeinBeratersWorkoutCreator : WorkoutCreator<String> {
 
 
     override fun createExercise(data: String): Exercise {
-        if (data == "") throw IllegalArgumentException("de.deinberater.workouts.Exercise info cannot be empty!")
+        if (data == "") throw IllegalArgumentException("Exercise info cannot be empty!")
 
         // Group 1: Sets (optional)
         val regex = Regex("(^[^():]+(?:\\(.+?\\))?)(?::(.+))?$")

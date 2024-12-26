@@ -16,4 +16,16 @@ data class Workout(
     override fun toString(): String {
         return DeinBeratersWorkoutConverter().convertWorkout(this)
     }
+
+    /** Get the amount of exercises in this workout
+     * */
+    fun getAmountExercises() = exercises.size
+
+    /** Get the total amount of sets in this workout
+     * */
+    fun getAmountSets() = exercises.sumOf { it.getAmountSets() }
+
+    /** Returns the total weight lifted in this workout
+     * */
+    fun getTotalVolume() = exercises.sumOf { it.getVolume() }
 }

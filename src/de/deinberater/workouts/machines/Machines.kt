@@ -89,6 +89,8 @@ class Machines {
                 put("Seated Row Seil", mapOf("type" to MachineType.DefaultMachine, "baseWeight" to 0.0))
             }
 
+            // Get the first machine that matches the machineName (lowercase).
+            // If not found, return a machine with no information.
             val machine = machines.filter { it.key.lowercase() == machineName.lowercase() }.values.firstOrNull()
             return machine ?: mapOf("type" to MachineType.Unknown, "baseWeight" to 0.0)
         }

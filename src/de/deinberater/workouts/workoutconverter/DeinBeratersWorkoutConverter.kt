@@ -23,9 +23,14 @@ class DeinBeratersWorkoutConverter : WorkoutConverter<String> {
     }
 
     override fun convertExercise(exercise: Exercise): String {
-        val machineString = convertMachine(exercise.machine)
-        val setsString = exercise.sets.joinToString { convertWorkoutSet(it) }
-        return "$machineString: $setsString"
+        var result = convertMachine(exercise.machine)
+
+        if (exercise.getAmountSets() > 0) {
+            val setsString = exercise.sets.joinToString { convertWorkoutSet(it) }
+            result += ": $setsString"
+        }
+
+        return result
     }
 
     override fun convertMachine(machine: Machine): String {

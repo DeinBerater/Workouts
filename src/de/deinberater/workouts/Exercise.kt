@@ -37,9 +37,13 @@ data class Exercise(val machine: Machine, val sets: MutableList<WorkoutSet> = mu
 
     /** Gets the total volume of this machine workout
      * @return The sum of the set volumes */
-    fun getVolume(): Int {
+    fun getVolume(): Double {
         return sets.sumOf { it.getVolume(machine.getRealWeight(0.0)) }
     }
+
+    /** Returns the amount of sets in this exercise
+     * */
+    fun getAmountSets() = sets.size
 
     override fun toString(): String {
         return DeinBeratersWorkoutConverter().convertExercise(this)
